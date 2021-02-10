@@ -24,6 +24,10 @@ RUN cd /var/www/html && \
 		cp /config/php_fpm_site.conf /etc/php7/php-fpm.d/www.conf && \
     cp /config/nginx_site.conf /etc/nginx/conf.d/default.conf;
 
+VOLUME /var/www/html/content
+VOLUME /var/www/html/themes
+VOLUME /var/www/html/plugins
+VOLUME /var/www/html/config
 
 EXPOSE 80
 ENTRYPOINT ["/config/start.sh"]
