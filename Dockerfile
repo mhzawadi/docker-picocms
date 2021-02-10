@@ -18,8 +18,8 @@ ENV SSL="false" \
 COPY config /config
 
 # copy phpipam sources to web dir
-RUN cd /var/www/html \
-    php composer.phar create-project picocms/pico-composer pico && \
+RUN cd /var/www/html && \
+    composer create-project picocms/pico-composer . && \
     cp /config/php.ini /etc/php7/php.ini && \
 		cp /config/php_fpm_site.conf /etc/php7/php-fpm.d/www.conf && \
     cp /config/nginx_site.conf /etc/nginx/conf.d/default.conf;
