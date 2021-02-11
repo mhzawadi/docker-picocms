@@ -17,9 +17,12 @@ ENV SSL="false" \
 
 COPY config /config
 
+ENV PICO_SOURCE="https://github.com/picocms/Pico/releases/download/" \
+		PICO_VERSION="v2.1.4"
+
 # copy phpipam sources to web dir
-RUN cd /var/www/html && \
-    composer create-project picocms/pico-composer . && \
+ADD ${PICO_SOURCE}/${PICO_VERSION}/pico-release-${PICO_VERSION}.tar.gz /var/www/
+RUN tar -xzf /var/www/pico-release-${PICO_VERSION}.tar.gz -C /var/www/html/ --strip-components=1 && \
     cp /config/php.ini /etc/php7/php.ini && \
 		cp /config/php_fpm_site.conf /etc/php7/php-fpm.d/www.conf && \
     cp /config/nginx_site.conf /etc/nginx/conf.d/default.conf;
