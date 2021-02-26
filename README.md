@@ -1,4 +1,4 @@
-Pico
+Pico [![Latest image](https://github.com/mhzawadi/docker-picocms/actions/workflows/image-latest.yml/badge.svg)](https://github.com/mhzawadi/docker-picocms/actions/workflows/image-latest.yml)
 ====
 
 Pico is a stupidly simple, blazing fast, flat file CMS.
