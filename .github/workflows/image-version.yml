@@ -1,6 +1,7 @@
 name: build our image for a tagged version
 
 on:
+  workflow_dispatch:
   push:
     tags:
       - v*
