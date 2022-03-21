@@ -1,9 +1,9 @@
-name: build our image for latest
+name: build our image for dev
 
 on:
   workflow_dispatch:
   push:
-    branches: master
+    branches: dev
 
 jobs:
   build:
@@ -21,5 +21,5 @@ jobs:
       - name: build the image
         run: |
           docker buildx build --push \
-            --tag mhzawadi/picocms:latest \
+            --tag mhzawadi/picocms:dev \
             --platform linux/amd64,linux/arm64 .

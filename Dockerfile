@@ -1,4 +1,4 @@
-FROM alpine:3.13
+FROM alpine:3.15
 MAINTAINER Matthew Horwood <matt@horwood.biz>
 
 # Install required deb packages
@@ -26,7 +26,7 @@ RUN cd /var/www/html && \
     composer create-project picocms/pico-composer . && \
     cp /config/php.ini /etc/php7/php.ini && \
 		cp /config/php_fpm_site.conf /etc/php7/php-fpm.d/www.conf && \
-    cp /config/nginx_site.conf /etc/nginx/conf.d/default.conf;
+    cp /config/nginx_site.conf /etc/nginx/http.d/default.conf;
 
 VOLUME /var/www/html/content
 VOLUME /var/www/html/themes
