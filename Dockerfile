@@ -18,14 +18,15 @@ ENV SSL="false" \
 COPY config /config
 
 ENV PICO_SOURCE="https://github.com/picocms/Pico/releases/download/" \
-		PICO_VERSION="2.1.4"
+		PICO_SEMVER="2.1.4" \
+		PICO_VERSION="v${PICO_SEMVER}"
 
 # copy phpipam sources to web dir
-ADD ${PICO_SOURCE}/${PICO_VERSION}/pico-release-v${PICO_VERSION}.tar.gz /var/www/
-ADD https://github.com/picocms/Pico/archive/refs/tags/v{PICO_VERSION}.zip /var/www/
+ADD ${PICO_SOURCE}/${PICO_VERSION}/pico-release-${PICO_VERSION}.tar.gz /var/www/
+ADD https://github.com/picocms/Pico/archive/refs/tags/{PICO_VERSION}.zip /var/www/
 RUN cd /var/www && \
 		unzip "${PICO_VERSION}.zip" && \
-		mv Pico-${PICO_VERSION} PicoCMS && \
+		mv Pico-${PICO_SEMVER} PicoCMS && \
 		cd html && \
     composer create-project picocms/pico-composer . && \
     cp /config/php.ini /etc/php7/php.ini && \
