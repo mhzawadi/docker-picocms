@@ -16,6 +16,11 @@ then
     tar -xzf /var/www/pico-release-${PICO_VERSION}.tar.gz -C /var/www/html/themes/ \
         --strip-components=1 themes/default
 fi
+if [ ! -d /var/www/html/content/index.md ]
+then
+    tar -xzf /var/www/pico-release-${PICO_VERSION}.tar.gz -C /var/www/html/content/ \
+        --strip-components=1 content-sample
+fi
 
 ln -s /dev/stdout /var/log/fpm-php.www.log
 ln -s /dev/stdout /var/log/nginx/access.log
