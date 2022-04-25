@@ -18,8 +18,7 @@ then
 fi
 if [ ! -f /var/www/html/content/index.md ]
 then
-    tar -xzf /var/www/pico-release-${PICO_VERSION}.tar.gz -C /var/www/html/content/ \
-        --strip-components=1 content-sample
+     cp -r /var/www/PicoCMS/content-sample/* /var/www/html/content/
 fi
 
 ln -s /dev/stdout /var/log/fpm-php.www.log
