@@ -19,7 +19,7 @@ COPY config /config
 
 ENV PICO_SOURCE="https://github.com/picocms/Pico/releases/download/" \
 		PICO_SEMVER="2.1.4" \
-		PICO_VERSION="v${PICO_SEMVER}"
+		PICO_VERSION="v2.1.4"
 
 # copy phpipam sources to web dir
 ADD ${PICO_SOURCE}/${PICO_VERSION}/pico-release-${PICO_VERSION}.tar.gz /var/www/
