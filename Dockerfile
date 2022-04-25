@@ -23,7 +23,7 @@ ENV PICO_SOURCE="https://github.com/picocms/Pico/releases/download/" \
 
 # copy phpipam sources to web dir
 ADD ${PICO_SOURCE}/${PICO_VERSION}/pico-release-${PICO_VERSION}.tar.gz /var/www/
-ADD https://github.com/picocms/Pico/archive/refs/tags/{PICO_VERSION}.zip /var/www/
+ADD https://github.com/picocms/Pico/archive/refs/tags/${PICO_VERSION}.zip /var/www/
 RUN cd /var/www && \
 		unzip "${PICO_VERSION}.zip" && \
 		mv Pico-${PICO_SEMVER} PicoCMS && \
