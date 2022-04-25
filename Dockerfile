@@ -28,7 +28,7 @@ RUN cd /var/www && \
 		unzip "${PICO_VERSION}.zip" && \
 		mv Pico-${PICO_SEMVER} PicoCMS && \
 		cd html && \
-    composer create-project picocms/pico-composer . && \
+    tar xf ../pico-release-${PICO_VERSION}.tar.gz && \
     cp /config/php.ini /etc/php7/php.ini && \
 		cp /config/php_fpm_site.conf /etc/php7/php-fpm.d/www.conf && \
     cp /config/nginx_site.conf /etc/nginx/http.d/default.conf;
