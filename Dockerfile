@@ -1,9 +1,9 @@
-FROM alpine:3.16
+FROM alpine:3.17
 MAINTAINER Matthew Horwood <matt@horwood.biz>
 
 # Install required deb packages
 RUN apk update && \
-	apk add nginx php7-fpm php7-mbstring php7-dom composer curl \
+	apk add nginx php81-fpm php81-mbstring php81-dom composer curl \
 	&& mkdir -p /var/www/html/ \
 	&& mkdir -p /run/nginx \
 	&& rm -f /var/cache/apk/*;
@@ -18,8 +18,8 @@ ENV SSL="false" \
 COPY config /config
 
 ENV PICO_SOURCE="https://github.com/picocms/Pico/releases/download/" \
-		PICO_SEMVER="2.1.4" \
-		PICO_VERSION="v2.1.4"
+		PICO_SEMVER="3.0.0-alpha.2" \
+		PICO_VERSION="v3.0.0-alpha.2"
 
 # copy phpipam sources to web dir
 ADD ${PICO_SOURCE}/${PICO_VERSION}/pico-release-${PICO_VERSION}.tar.gz /var/www/
@@ -29,8 +29,8 @@ RUN cd /var/www && \
 		mv Pico-${PICO_SEMVER} PicoCMS && \
 		cd html && \
     tar xf ../pico-release-${PICO_VERSION}.tar.gz && \
-    cp /config/php.ini /etc/php7/php.ini && \
-		cp /config/php_fpm_site.conf /etc/php7/php-fpm.d/www.conf && \
+    cp /config/php.ini /etc/php81/php.ini && \
+		cp /config/php_fpm_site.conf /etc/php81/php-fpm.d/www.conf && \
     cp /config/nginx_site.conf /etc/nginx/http.d/default.conf;
 
 VOLUME /var/www/html/content

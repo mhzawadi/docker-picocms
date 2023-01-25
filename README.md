@@ -16,12 +16,12 @@ The below will start the container with port 8080 exposed,
 the 4 paths containing the site
 
 ```bash
-docker run --name picocms
-  -p 8080:80
-  -v /my_dir/picocms_assets:/var/www/html/assets
-  -v /my_dir/picocms_config:/var/www/html/config
-  -v /my_dir/picocms_content:/var/www/html/content
-  -v /my_dir/picocms_plugins:/var/www/html/plugins
-  -v /my_dir/picocms_themes:/var/www/html/themes
+docker run --name picocms \
+  -p 8080:80 \
+  -v /my_dir/picocms_assets:/var/www/html/assets \
+  -v /my_dir/picocms_config:/var/www/html/config \
+  -v /my_dir/picocms_content:/var/www/html/content \
+  -v /my_dir/picocms_plugins:/var/www/html/plugins \
+  -v /my_dir/picocms_themes:/var/www/html/themes\ 
   -d mhzawadi/picocms
 ```
