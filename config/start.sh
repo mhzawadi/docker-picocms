@@ -23,12 +23,12 @@ fi
 
 if [ -n "$allow_php_status_ip" ]
 then
-  sed -e "s!127.0.0.2!$allow_php_status_ip!" /config/nginx_site.conf > /etc/nginx/http.d/default.conf
+  sed -i "" -e "s!127.0.0.2!$allow_php_status_ip!" /etc/nginx/http.d/default.conf
 fi
 
 if [ -n "$allow_php_ping_ip" ]
 then
-  sed -e "s!127.0.0.3!$allow_php_ping_ip!"  /config/nginx_site.conf > /etc/nginx/http.d/default.conf
+  sed -i "" -e "s!127.0.0.3!$allow_php_ping_ip!" /etc/nginx/http.d/default.conf
 fi
 
 if [ -n "$php_ping_text" ]
