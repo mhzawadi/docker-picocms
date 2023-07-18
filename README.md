@@ -33,9 +33,9 @@ you will need set an allowed IP for both pages.
 
 The endpoints are `/php_status` and `/php_ping`
 
-- allow-php-status-ip: this is an IP addres that can see the status page
-- allow-php-ping-ip: this is an IP addres that can see the ping/pong page
-- php-ping-text: the text that should be returned by the ping page
+- allow_php_status_ip: this is an IP addres that can see the status page
+- allow_php_ping_ip: this is an IP addres that can see the ping/pong page
+- php_ping_text: the text that should be returned by the ping page
 
 ```bash
 docker run --name picocms \
@@ -45,8 +45,8 @@ docker run --name picocms \
   -v /my_dir/picocms_content:/var/www/html/content \
   -v /my_dir/picocms_plugins:/var/www/html/plugins \
   -v /my_dir/picocms_themes:/var/www/html/themes \
-  -e 'allow-php-status-ip=1.2.3.4' \
-  -e 'allow-php-ping-ip=1.2.3.4' \
-  -e 'php-ping-text=this is a pong' \
+  -e 'allow_php_status_ip=1.2.3.4' \
+  -e 'allow_php_ping_ip=1.2.3.4' \
+  -e 'php_ping_text=this is a pong' \
   -d mhzawadi/picocms
 ```
