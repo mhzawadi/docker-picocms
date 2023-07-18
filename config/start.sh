@@ -23,12 +23,12 @@ fi
 
 if [ -n "$allow-php-status-ip" ]
 then
-  sed -e "s/127.0.0.2/$allow-php-status-ip/" /config/php_fpm_site.conf > /config/php_fpm_site.conf
+  sed -e "s/127.0.0.2/$allow-php-status-ip/" /config/nginx_site.conf > /etc/nginx/http.d/default.conf
 fi
 
 if [ -n "$allow-php-ping-ip" ]
 then
-  sed -e "s/127.0.0.3/$allow-php-ping-ip/" /config/php_fpm_site.conf > /config/php_fpm_site.conf
+  sed -e "s/127.0.0.3/$allow-php-ping-ip/"  /config/nginx_site.conf > /etc/nginx/http.d/default.conf
 fi
 
 if [ -n "$php-ping-text" ]
