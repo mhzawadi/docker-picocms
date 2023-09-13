@@ -21,6 +21,21 @@ then
      cp -r /var/www/PicoCMS/content-sample/* /var/www/html/content/
 fi
 
+if [ -n "$allow_php_status_ip" ]
+then
+  sed -i -e "s!127.0.0.2!$allow_php_status_ip!" /etc/nginx/http.d/default.conf
+fi
+
+if [ -n "$allow_php_ping_ip" ]
+then
+  sed -i -e "s!127.0.0.3!$allow_php_ping_ip!" /etc/nginx/http.d/default.conf
+fi
+
+if [ -n "$php_ping_text" ]
+then
+  sed -e "s/pong/$php_ping_text/" /config/php_fpm_site.conf > /etc/php81/php-fpm.d/www.conf
+fi
+
 ln -s /dev/stdout /var/log/fpm-php.www.log
 ln -s /dev/stdout /var/log/nginx/access.log
 

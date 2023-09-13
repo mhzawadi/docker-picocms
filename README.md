@@ -25,3 +25,28 @@ docker run --name picocms \
   -v /my_dir/picocms_themes:/var/www/html/themes\ 
   -d mhzawadi/picocms
 ```
+
+## New php monitoring
+
+This will now expose both the ping and status pages from FPM,
+you will need set an allowed IP for both pages.
+
+The endpoints are `/php_status` and `/php_ping`
+
+- allow_php_status_ip: this is an IP addres that can see the status page
+- allow_php_ping_ip: this is an IP addres that can see the ping/pong page
+- php_ping_text: the text that should be returned by the ping page
+
+```bash
+docker run --name picocms \
+  -p 8080:80 \
+  -v /my_dir/picocms_assets:/var/www/html/assets \
+  -v /my_dir/picocms_config:/var/www/html/config \
+  -v /my_dir/picocms_content:/var/www/html/content \
+  -v /my_dir/picocms_plugins:/var/www/html/plugins \
+  -v /my_dir/picocms_themes:/var/www/html/themes \
+  -e 'allow_php_status_ip=1.2.3.4' \
+  -e 'allow_php_ping_ip=1.2.3.4' \
+  -e 'php_ping_text=this is a pong' \
+  -d mhzawadi/picocms
+```
