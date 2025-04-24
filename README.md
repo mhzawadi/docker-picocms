@@ -25,6 +25,8 @@ docker run --name picocms \
   -v /my_dir/picocms_themes:/var/www/html/themes\ 
   -d mhzawadi/picocms
 ```
+## PHP timezone
+- php_timezone: the PHP timezone
 
 ## New php monitoring
 
