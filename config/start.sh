@@ -33,17 +33,17 @@ fi
 
 if [ -n "$php_ping_text" ]
 then
-  sed -e "s/pong/$php_ping_text/" /config/php_fpm_site.conf > /etc/php81/php-fpm.d/www.conf
+  sed -e "s/pong/$php_ping_text/" /config/php_fpm_site.conf > /etc/php84/php-fpm.d/www.conf
 fi
 
 if [ -n "$php_timezone" ]
 then
-  sed -i'' "s!date.timezone = \"US/Central\"!date.timezone = \"$php_timezone\"!" /etc/php81/php.ini
+  sed -i'' "s!date.timezone = \"US/Central\"!date.timezone = \"$php_timezone\"!" /etc/php84/php.ini
 fi
 
 ln -s /dev/stdout /var/log/fpm-php.www.log
 ln -s /dev/stdout /var/log/nginx/access.log
 
-php-fpm81
+php-fpm84
 
 exec "$@"
