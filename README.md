@@ -22,15 +22,9 @@ docker run --name picocms \
   -v /my_dir/picocms_config:/var/www/html/config \
   -v /my_dir/picocms_content:/var/www/html/content \
   -v /my_dir/picocms_plugins:/var/www/html/plugins \
-  -v /my_dir/picocms_themes:/var/www/html/themes\ 
+  -v /my_dir/picocms_themes:/var/www/html/themes\
   -d mhzawadi/picocms
 ```
-## PHP timezone
-- php_timezone: the PHP timezone
-
-## PHP timezone
-- php_timezone: the PHP timezone
-
 ## PHP timezone
 - php_timezone: the PHP timezone
 
