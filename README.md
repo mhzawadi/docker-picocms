@@ -26,6 +26,9 @@ docker run --name picocms \
   -d mhzawadi/picocms
 ```
 
+## PHP timezone
+- php_timezone: the PHP timezone
+
 ## New php monitoring
 
 This will now expose both the ping and status pages from FPM,
