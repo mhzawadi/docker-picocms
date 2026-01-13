@@ -1,4 +1,4 @@
-FROM alpine:3.22
+FROM alpine:3.23
 LABEL org.opencontainers.image.authors="Matthew Horwood <matt@horwood.biz>"
 
 # Install required apk packages
