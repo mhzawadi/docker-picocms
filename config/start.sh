@@ -3,22 +3,22 @@
 # Make sure the default stuff is there
 if [ ! -f /var/www/html/config/config.yml.template ]
 then
-    tar -xzf /var/www/pico-release-${PICO_VERSION}.tar.gz -C /var/www/html/config/ \
-        --strip-components=1 config/config.yml.template
+  tar -xzf /var/www/pico-release-${PICO_VERSION}.tar.gz -C /var/www/html/config/ \
+      --strip-components=1 config/config.yml.template
 fi
 if [ ! -d /var/www/html/plugins/PicoDeprecated/ ]
 then
-    tar -xzf /var/www/pico-release-${PICO_VERSION}.tar.gz -C /var/www/html/plugins/ \
-        --strip-components=1 plugins/PicoDeprecated
+  tar -xzf /var/www/pico-release-${PICO_VERSION}.tar.gz -C /var/www/html/plugins/ \
+      --strip-components=1 plugins/PicoDeprecated
 fi
 if [ ! -d /var/www/html/themes/default/ ]
 then
-    tar -xzf /var/www/pico-release-${PICO_VERSION}.tar.gz -C /var/www/html/themes/ \
-        --strip-components=1 themes/default
+  tar -xzf /var/www/pico-release-${PICO_VERSION}.tar.gz -C /var/www/html/themes/ \
+      --strip-components=1 themes/default
 fi
 if [ ! -f /var/www/html/content/index.md ]
 then
-     cp -r /var/www/PicoCMS/content-sample/* /var/www/html/content/
+  cp -r /var/www/PicoCMS/content-sample/* /var/www/html/content/
 fi
 
 if [ -n "$allow_php_status_ip" ]
